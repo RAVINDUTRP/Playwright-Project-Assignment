@@ -1,1 +1,1 @@
-Playwright Project Reposatory Link : 
+Playwright Project Repository Link : https://github.com/RAVINDUTRP/Playwright-Project-Assignment.git
