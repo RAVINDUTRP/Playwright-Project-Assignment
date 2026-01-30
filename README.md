@@ -2,7 +2,7 @@
 
 ## 📋 Project Overview
 
-This project contains automated end-to-end tests for the **Swift Translator** web application (https://www.swifttranslator.com/), which converts Singlish (Romanized Sinhala) text to Sinhala Unicode script. The test suite is built using **Playwright** testing framework.
+This project contains automated end-to-end tests for the **Swift Translator** web application (https://www.swifttranslator.com/), which converts Singlish text to Sinhala Unicode script. The test suite is built using **Playwright** testing framework.
 
 **Student ID:** IT23384392  
 **Name:** THILAKARATHNA T.R.P.  
@@ -165,13 +165,6 @@ After running tests, view the detailed HTML report:
 ```bash
 npx playwright show-report
 ```
-
-The report will open in your default browser showing:
-- Test results summary
-- Pass/Fail status for each test
-- Screenshots for failed tests
-- Execution time details
-- 
 ---
 
 ## 📝 Test Application Details
