@@ -179,10 +179,6 @@ npx playwright show-report
 - UI responsiveness
 
 ---
-
-## 🤝 Contributing
-
-This project is part of an academic assignment.
-
+This project is an academic assignment.
 ---
 
