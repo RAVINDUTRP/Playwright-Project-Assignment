@@ -334,6 +334,9 @@ test('Pos_Fun_0023 - Punctuation Handling', async ({ page }) => {
 
   await singlishInput.fill('wow!');
   await singlishInput.press('Enter');
+  
+  // Wait for translation to appear
+  await waitForTranslation(page, sinhalaOutput);
 
   // Transliteration may vary, checking punctuation retention
   await expect(sinhalaOutput).toContainText('!');
@@ -348,6 +351,9 @@ test('Pos_Fun_0024 - Long Paragraph (Stress Test)', async ({ page }) => {
 
   await singlishInput.fill(longText);
   await singlishInput.press('Enter');
+  
+  // Wait for translation to appear
+  await waitForTranslation(page, sinhalaOutput);
 
   // Checking a part of the expected Sinhala output
   await expect(sinhalaOutput).toContainText('ද්විත්ව සුළි කුණාටුව');
@@ -364,6 +370,9 @@ test('Neg_Fun_0001 - Joined words without spaces (Stress Test)', async ({ page }
 
   await singlishInput.fill('mamagedharayanavaa');
   await singlishInput.press('Enter');
+  
+  // Wait for translation to appear
+  await waitForTranslation(page, sinhalaOutput);
 
   // We expect it NOT to produce the perfect sentence "මම ගෙදර යනවා" due to lack of spaces
   await expect(sinhalaOutput).not.toHaveText('මම ගෙදර යනවා');
@@ -423,9 +432,11 @@ test('Neg_Fun_0005 - Empty Input Handling', async ({ page }) => {
   await singlishInput.fill('');
   await singlishInput.press('Enter');
   
-  // Wait for translation to appear
-  await waitForTranslation(page, sinhalaOutput);
+  // For empty input, just wait a moment for any potential response
+  await page.waitForTimeout(2000);
+  
   await expect(sinhalaOutput).toBeEmpty();
+});
 });
 
 test('Neg_Fun_0006 - Numeric strings without context', async ({ page }) => {
@@ -464,6 +475,9 @@ test('Neg_Fun_0008 - Chat Shorthand (Unsupported)', async ({ page }) => {
 
   await singlishInput.fill('Thx');
   await singlishInput.press('Enter');
+  
+  // Wait for translation to appear
+  await waitForTranslation(page, sinhalaOutput);
 
   // Expectation: It does NOT convert to "ස්තූතියි"
   await expect(sinhalaOutput).not.toContainText('ස්තූතියි');
@@ -477,6 +491,9 @@ test('Neg_Fun_0009 - Gibberish Input', async ({ page }) => {
 
   await singlishInput.fill('asdfghjkl');
   await singlishInput.press('Enter');
+  
+  // Wait for translation to appear
+  await waitForTranslation(page, sinhalaOutput);
 
   // Should produce output, but not a valid known word.
   await expect(sinhalaOutput).not.toBeEmpty();
@@ -531,6 +548,9 @@ test('Pos_UI_0002 - Clear Input Functionality', async ({ page }) => {
   await expect(sinhalaOutput).toContainText('මට බත් ඕනේ');
 
   await singlishInput.clear();
+  
+  // Wait a moment for the output to clear (real-time update)
+  await page.waitForTimeout(1000);
 
   await expect(sinhalaOutput).toBeEmpty();
 });
