@@ -440,6 +440,8 @@ test('Pos_UI_0001 - Real-time output update behavior', async ({ page }) => {
 
   // Type text character by character to simulate real user input
   await singlishInput.pressSequentially('man gedhara yanavaa', { delay: 50 });
+  // Wait for conversion to complete
+  await expect(sinhalaOutput).not.toBeEmpty();
   // We check immediate conversion without pressing Enter
   await expect(sinhalaOutput).toContainText('මන් ගෙදර යනවා');
 });
