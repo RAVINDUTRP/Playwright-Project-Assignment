@@ -1,8 +1,8 @@
-# Singlish to Sinhala Translator - Automated Testing Suite
+# Singlish to Sinhala Translator - ITPM Assignment 1
 
 ## 📋 Project Overview
 
-This project contains automated end-to-end tests for the **Swift Translator** web application (https://www.swifttranslator.com/), which converts Singlish (Romanized Sinhala) text to Sinhala Unicode script. The test suite is built using **Playwright** testing framework.
+This project contains automated end-to-end tests for the **Swift Translator** web application (https://www.swifttranslator.com/), which converts Singlish text to Sinhala Unicode script. The test suite is built using **Playwright** testing framework.
 
 **Student ID:** IT23384392  
 **Name:** THILAKARATHNA T.R.P.  
@@ -165,30 +165,6 @@ After running tests, view the detailed HTML report:
 ```bash
 npx playwright show-report
 ```
-
-The report will open in your default browser showing:
-- Test results summary
-- Pass/Fail status for each test
-- Screenshots for failed tests
-- Execution time details
-
----
-
-## ⚙️ Configuration
-
-The `playwright.config.js` file contains the test configuration:
-
-- **Test Directory:** `./tests`
-- **Parallel Execution:** Enabled
-- **Retries:** 2 on CI, 0 locally
-- **Reporter:** HTML
-- **Trace:** Collected on first retry
-
-### Supported Browsers
-- Chromium (Desktop Chrome)
-- Firefox (Desktop Firefox)
-- WebKit (Desktop Safari)
-
 ---
 
 ## 📝 Test Application Details
@@ -202,12 +178,9 @@ The `playwright.config.js` file contains the test configuration:
 - Edge cases and error handling
 - UI responsiveness
 
-
 ---
 
-## 🤝 Contributing
-
-This project is part of an academic assignment. For any queries, please contact the author.
+This project is an academic assignment.🎓
 
 ---
 
