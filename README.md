@@ -171,24 +171,7 @@ The report will open in your default browser showing:
 - Pass/Fail status for each test
 - Screenshots for failed tests
 - Execution time details
-
----
-
-## ⚙️ Configuration
-
-The `playwright.config.js` file contains the test configuration:
-
-- **Test Directory:** `./tests`
-- **Parallel Execution:** Enabled
-- **Retries:** 2 on CI, 0 locally
-- **Reporter:** HTML
-- **Trace:** Collected on first retry
-
-### Supported Browsers
-- Chromium (Desktop Chrome)
-- Firefox (Desktop Firefox)
-- WebKit (Desktop Safari)
-
+- 
 ---
 
 ## 📝 Test Application Details
@@ -202,12 +185,11 @@ The `playwright.config.js` file contains the test configuration:
 - Edge cases and error handling
 - UI responsiveness
 
-
 ---
 
 ## 🤝 Contributing
 
-This project is part of an academic assignment. For any queries, please contact the author.
+This project is part of an academic assignment.
 
 ---
 
