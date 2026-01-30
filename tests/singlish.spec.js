@@ -25,6 +25,8 @@ test('Pos_Fun_0002 - Compound sentence conversion', async ({ page }) => {
   await singlishInput.fill('api kaeema kanna yanavaa saha passe chithrapatayakuth balanavaa.');
   await singlishInput.press('Enter');
 
+  // Wait for output to have content before checking
+  await expect(sinhalaOutput).not.toBeEmpty();
   await expect(sinhalaOutput).toContainText('අපි කෑම කන්න යනවා සහ පස්සේ චිත්‍රපටයකුත් බලනවා.');
 });
 
@@ -291,6 +293,8 @@ test('Pos_Fun_0024 - Long Paragraph (Stress Test)', async ({ page }) => {
   await singlishInput.fill(longText);
   await singlishInput.press('Enter');
 
+  // Wait for output to have content
+  await expect(sinhalaOutput).not.toBeEmpty();
   // Checking a part of the expected Sinhala output
   await expect(sinhalaOutput).toContainText('ද්විත්ව සුළි කුණාටුව');
 });
@@ -344,6 +348,8 @@ test('Neg_Fun_0004 - Invalid Special Characters', async ({ page }) => {
   await singlishInput.fill('%%%$$$###');
   await singlishInput.press('Enter');
 
+  // Wait for output to appear
+  await expect(sinhalaOutput).not.toBeEmpty();
   const text = await sinhalaOutput.innerText();
   // Expecting characters to be returned as is, or not converted
   expect(text.trim()).toBe('%%%$$$###');
@@ -420,6 +426,8 @@ test('Neg_Fun_0010 - HTML Tag Injection', async ({ page }) => {
   await singlishInput.fill('<b>bold</b>');
   await singlishInput.press('Enter');
 
+  // Wait for output to appear
+  await expect(sinhalaOutput).not.toBeEmpty();
   // Ensure tags are treated as text
   const content = await sinhalaOutput.innerText();
   expect(content).toContain('<b>');
@@ -434,7 +442,8 @@ test('Pos_UI_0001 - Real-time output update behavior', async ({ page }) => {
   const singlishInput = page.getByPlaceholder('Input Your Singlish Text Here.');
   const sinhalaOutput = page.locator('div.whitespace-pre-wrap').first();
 
-  await singlishInput.fill('man gedhara yanavaa');
+  // Type text character by character to simulate real user input
+  await singlishInput.pressSequentially('man gedhara yanavaa', { delay: 50 });
   // We check immediate conversion without pressing Enter
   await expect(sinhalaOutput).toContainText('මන් ගෙදර යනවා');
 });
