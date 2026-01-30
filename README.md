@@ -1,4 +1,4 @@
-# Singlish to Sinhala Translator - Automated Testing Suite
+# Singlish to Sinhala Translator - ITPM Assignment 1
 
 ## 📋 Project Overview
 
