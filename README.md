@@ -102,7 +102,7 @@ Assignment-1/
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
-   cd Assignment-1
+   cd Playwright-Project-Assignment-master
    ```
 
 2. **Install dependencies:**
